@@ -1,6 +1,7 @@
 #!/bin/bash
 clear
-
+#1. 设置默认 IP
+sed -i 's/10.0.0.1/10.0.0.252/g' openwrt/package/base-files/files/bin/config_generate
 # 使用专属优化
 sed -i 's,-mcpu=generic,-mcpu=cortex-a53+crypto,g' include/target.mk
 cp -f ../PATCH/mbedtls/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch ./package/libs/mbedtls/patches/100-Implements-AES-and-GCM-with-ARMv8-Crypto-Extensions.patch
